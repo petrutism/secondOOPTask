@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFile {
-    List<Person> persons;
+    List<Person> persons = new ArrayList<>();
 
     public ReadFile(File file) {
-        persons = new ArrayList<>();
+
         if (!file.exists()) {
             try {
                 file.createNewFile();

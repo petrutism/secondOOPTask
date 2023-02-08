@@ -18,17 +18,21 @@ public class InputPerson {
         surname = sc.nextLine();
         System.out.println("Input personal number: ");
         personalNumber = sc.nextLine();
-        for (int i = 0; i < readFile.persons.size(); i++) {
-            if (name.equals(readFile.persons.get(i).name()) &&
-                    surname.equals(readFile.persons.get(i).surname()) &&
-                    personalNumber.equals(readFile.persons.get(i).personalNumber())) {
-                userNotExist = false;
+
+        if (readFile != null) {
+            for (int i = 0; i < readFile.persons.size(); i++) {
+                if (name.equals(readFile.persons.get(i).name()) &&
+                        surname.equals(readFile.persons.get(i).surname()) &&
+                        personalNumber.equals(readFile.persons.get(i).personalNumber())) {
+                    userNotExist = false;
+                }
             }
         }
+
         if (userNotExist) {
             readFile.addPerson(new Person(name, surname, personalNumber));
             System.out.println("Person successfully added...");
-        } else{
+        } else {
             System.out.println("User already exist...");
         }
 

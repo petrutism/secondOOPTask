@@ -13,7 +13,6 @@ public class Test {
         if (file.exists()) {
             rf = new ReadFile(file);
         }
-
         to.selectAction(file, rf);
     }
 
@@ -25,7 +24,14 @@ public class Test {
             action = sc.nextLine();
             switch (action) {
                 case "1" -> inputAction(rf);
-                case "2" -> rf.printAll();
+                case "2" -> {
+                    if (rf == null) {
+                        System.out.println("There is nothing to print...");
+                    } else {
+                        rf.printAll();
+                    }
+                    ;
+                }
                 case "3" -> endOfProgram(file, rf);
                 default -> System.out.println("There is no such action...");
             }
@@ -33,9 +39,13 @@ public class Test {
     }
 
     void endOfProgram(File file, ReadFile readFile) {
-        Users users = new Users(readFile.persons);
-        new WriteFile(users, file);
-        System.out.println("FINISHING...");
+        if (readFile != null) {
+            Users users = new Users(readFile.persons);
+            new WriteFile(users, file);
+        } else {
+            System.out.println("Finishing without write...");
+        }
+        System.out.println("GOOD BYE...");
     }
 
     void inputAction(ReadFile rf) {
