@@ -1,0 +1,11 @@
+{
+  "users" : [ {
+    "name" : "Mindaugas",
+    "surname" : "Petrutis",
+    "personalNumber" : "123"
+  }, {
+    "name" : "Sekantis",
+    "surname" : "Vartotojas",
+    "personalNumber" : "852369"
+  } ]
+}
